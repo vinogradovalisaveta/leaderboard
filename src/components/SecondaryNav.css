@@ -1,0 +1,93 @@
+.secondary-nav {
+  background: #fff;
+  border-bottom: 1px solid #edebe9;
+  position: sticky;
+  top: 48px;
+  z-index: 2000;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  overflow: visible;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 16px;
+  gap: 2px;
+  overflow: visible;
+}
+
+.nav-link {
+  display: flex; align-items: center; gap: 4px;
+  padding: 0 10px;
+  height: 44px;
+  color: #323130;
+  font-size: 13.5px;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  border-radius: 0;
+}
+.nav-link:hover { color: #0078d4; background: #f3f2f1; }
+
+.nav-dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13.5px;
+}
+.nav-dropdown-wrap { position: relative; }
+.nav-dropdown-wrap.open { z-index: 12010; }
+.nav-dropdown-wrap.open > .nav-link { color: #0078d4; border-bottom-color: #0078d4; }
+
+.caret { font-size: 10px; margin-left: 2px; opacity: 0.6; }
+
+/* Sub-menus */
+.sub-menu {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.14);
+  min-width: 220px;
+  list-style: none;
+  padding: 6px 0;
+  z-index: 12000;
+  pointer-events: auto;
+}
+.sub-item { position: relative; }
+.sub-item > .sub-menu {
+  top: 0;
+  left: calc(100% + 2px);
+}
+.sub-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  color: #323130;
+  font-size: 13.5px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.1s, color 0.1s;
+}
+.sub-link:hover { background: #f3f2f1; color: #0078d4; }
+.sub-link-btn {
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+.arrow-right { font-size: 16px; opacity: 0.5; }
+
+@media (max-width: 1100px) {
+  .nav-inner {
+    flex-wrap: nowrap;
+    overflow: visible;
+  }
+}
+

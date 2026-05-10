@@ -1,0 +1,15 @@
+.breadcrumbs {
+  padding: 10px 32px;
+  font-size: 13px;
+  color: #605e5c;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #f3f2f1;
+}
+.bc-link { color: #0078d4; text-decoration: none; }
+.bc-link:hover { text-decoration: underline; }
+.bc-sep { color: #a19f9d; }
+.bc-current { color: #605e5c; text-decoration: none; }
+.bc-current:hover { text-decoration: underline; }
+

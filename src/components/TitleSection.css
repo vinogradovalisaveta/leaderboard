@@ -1,0 +1,20 @@
+.title-section {
+  background: transparent;
+  padding: 28px 32px 16px;
+  color: #323130;
+}
+.title-badge {
+  display: inline-block;
+  background: #e1effa;
+  border: 1px solid #b9ddf7;
+  padding: 3px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.title-h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
+.title-desc { font-size: 15px; opacity: 0.85; }
+

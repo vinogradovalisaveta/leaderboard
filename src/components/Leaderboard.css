@@ -1,0 +1,284 @@
+.leaderboard { padding: 24px 32px 32px; }
+
+/* ── Avatar ─────────────────────────────── */
+.avatar {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+/* ── Star Score ──────────────────────────── */
+.score-display {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #0ea5e9;
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+}
+.score-display--large { font-size: 22px; }
+.score-star { font-size: 1em; line-height: 1; }
+
+/* ── Podium ──────────────────────────────── */
+.podium {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 18px;
+  margin-bottom: 36px;
+  padding: 6px 0 14px;
+  border-bottom: 1px solid #e1dfdd;
+}
+.podium-center { order: 2; }
+.podium-left { order: 1; }
+.podium-right { order: 3; }
+
+.podium-place {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 170px;
+}
+.podium-place--2,
+.podium-place--3 {
+  transform: translateY(22px);
+}
+
+.podium-user-name {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #323130;
+  text-align: center;
+}
+.podium-user-score { margin-bottom: 6px; }
+
+.podium-stand {
+  width: 152px;
+  border-radius: 10px 10px 0 0;
+  background: var(--podium-bg);
+  border: 1px solid var(--podium-border);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.podium-place--1 .podium-stand { height: 154px; width: 170px; }
+.podium-place--2 .podium-stand { height: 122px; }
+.podium-place--3 .podium-stand { height: 96px; }
+
+.podium-rank {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Users list ──────────────────────────── */
+.users-list {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+
+/* ── User Row ─────────────────────────────── */
+.user-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #f3f2f1;
+  cursor: pointer;
+  transition: background 0.15s;
+  gap: 0;
+  min-height: 64px;
+}
+.user-row:last-child { border-bottom: none; }
+.user-row:hover { background: #f8f8f8; }
+.user-row--expanded { background: #f0f6ff; }
+
+/* LEFT section */
+.user-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 260px;
+  min-width: 0;
+}
+.user-rank { font-weight: 700; font-size: 13px; color: #a19f9d; width: 28px; flex-shrink: 0; text-align: center; }
+.user-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.user-name { font-weight: 600; font-size: 14px; color: #323130; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.user-role { font-size: 11px; color: #605e5c; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* MIDDLE: category icons — right-aligned so they sit flush against the divider */
+.user-cats {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 0 16px 0 24px;
+  min-width: 0;
+}
+
+/* Category icon block */
+.cat-icon-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  position: relative;
+  cursor: default;
+}
+.cat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #605e5c;
+  transition: color 0.15s;
+}
+/* Colored variant — always #0ea5e9 */
+.cat-icon--colored {
+  color: #0ea5e9 !important;
+}
+.cat-icon-block:hover .cat-icon--colored { color: #0284c7 !important; }
+.cat-count {
+  font-size: 11px;
+  font-weight: 700;
+  color: #605e5c;
+  line-height: 1;
+}
+.cat-count--colored {
+  color: #0ea5e9;
+}
+
+/* Tooltip */
+.cat-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #323130;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 500;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.cat-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%; left: 50%; transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #323130;
+}
+
+/* DIVIDER */
+.user-divider {
+  width: 1px;
+  height: 36px;
+  background: #edebe9;
+  flex-shrink: 0;
+  margin: 0 16px;
+}
+
+/* RIGHT: score + arrow */
+.user-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.expand-arrow { font-size: 16px; color: #605e5c; transition: transform 0.2s; display: inline-block; }
+.expand-arrow.rotated { transform: rotate(180deg); }
+
+/* ── Activity expand panel ─────────────── */
+.activity-panel {
+  background: #f8f9ff;
+  border-bottom: 1px solid #dde2f0;
+  padding: 16px 20px 16px;
+}
+
+.recent-activity-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #605e5c;
+  margin-bottom: 10px;
+  padding-left: 4px;
+}
+
+.activity-header {
+  display: grid;
+  grid-template-columns: 1fr 180px 130px 90px;
+  padding: 6px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #a19f9d;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid #dde2f0;
+  margin-bottom: 4px;
+}
+.activity-row {
+  display: grid;
+  grid-template-columns: 1fr 180px 130px 90px;
+  align-items: center;
+  padding: 9px 12px;
+  font-size: 13px;
+  color: #323130;
+  border-radius: 6px;
+  transition: background 0.1s;
+}
+.activity-row:hover { background: #eef2ff; }
+
+.act-name { font-weight: 500; }
+
+/* gray pill badge */
+.act-cat {
+  display: inline-flex;
+  align-items: center;
+  background: #edebe9;
+  color: #605e5c;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.act-date { color: #605e5c; font-size: 12px; }
+
+.act-pts {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 700;
+  color: #0ea5e9;
+  font-size: 13px;
+}
+.act-pts .score-star { font-size: 12px; }
+
+/* ── Empty state ─────────────────────────── */
+.leaderboard-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #605e5c;
+}
+.empty-icon { font-size: 48px; margin-bottom: 16px; }
